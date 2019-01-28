@@ -14,21 +14,21 @@ hbs.registerPartials(__dirname + '/views/partials');
 app.set('view engine', 'hbs');
 
 //setting up static route for assets
-app.use((req, res, next)=>{
+// app.use((req, res, next)=>{
 
-	let now = new Date().toString();
-	let log = `${now}: ${req.method} ${req.url}`;
+// 	let now = new Date().toString();
+// 	let log = `${now}: ${req.method} ${req.url}`;
 
-	fs.appendFile('server.log', log + '\n',(err)=>{
+// 	fs.appendFile('server.log', log + '\n',(err)=>{
 
-		if (err) {
-			console.log('Unable to append to server.log');
-		}
+// 		if (err) {
+// 			console.log('Unable to append to server.log');
+// 		}
 
-	});
-	next();	
+// 	});
+// 	next();	
 
-});
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -64,13 +64,13 @@ app.get('/', (req, res)=>{
 
 	};
 
-	res.render('home.hbs', obj);
+	res.render('pages/home.hbs', obj);
 
 });
 
 app.get('/about', (req, res)=>{
 
-	res.render('about.hbs', {
+	res.render('pages/about.hbs', {
 
 		pageTitle: 'About Page',
 		msg: 'Some Text Here'
@@ -87,7 +87,20 @@ app.get('/projects', (req, res)=>{
 		msg: 'Portfolio goes here'
 
 	};
-	res.render('projects.hbs', obj);
+	res.render('pages/projects.hbs', obj);
+
+});
+
+app.get('/credits', (req, res)=>{
+
+	let obj = {
+
+		pageTitle: 'Credits',
+		msg: ''
+
+	};
+
+	res.render('pages/credits.hbs', obj);
 
 });
 
