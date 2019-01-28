@@ -79,17 +79,17 @@ app.get('/about', (req, res)=>{
 
 });
 
-app.get('/projects', (req, res)=>{
+// app.get('/projects', (req, res)=>{
 
-	let obj = {
+// 	let obj = {
 
-		pageTitle: 'Projects',
-		msg: 'Portfolio goes here'
+// 		pageTitle: 'Projects',
+// 		msg: 'Portfolio goes here'
 
-	};
-	res.render('pages/projects.hbs', obj);
+// 	};
+// 	res.render('pages/projects.hbs', obj);
 
-});
+// });
 
 app.get('/credits', (req, res)=>{
 
